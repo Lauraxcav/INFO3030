@@ -1,5 +1,8 @@
 package edu.lauracavanaugh.advancedjava;
 
+/**
+ * Wash Cycle determines the agitator and spin speed, as well as the water temp
+ */
 public class WashCycle implements IClean {
     private String cycle;
     private String temp;
