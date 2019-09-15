@@ -8,10 +8,23 @@
   <name>lauracavanaugh-app</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+    <!-- Junit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Mockito -->
+      <dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-all</artifactId>
+          <version>1.9.5</version>
+      </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
