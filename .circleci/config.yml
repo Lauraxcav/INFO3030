@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - checkout:
-        path: ~/INFO3030
+            path: ~/INFO3030
 
       # Download and cache dependencies
       - restore_cache:
