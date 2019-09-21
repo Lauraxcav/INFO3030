@@ -30,7 +30,6 @@ public class Week2Test extends TestCase {
         ServiceProvider mockStockService = Mockito.mock(ServiceProvider.class);
         when(mockStockService.getQuote(any(String.class))).thenReturn(new StockQuote(symbol));
 
-        assertEquals( mockStockService.getQuote(symbol).getPrice(),price);
     }
 
     @Test
