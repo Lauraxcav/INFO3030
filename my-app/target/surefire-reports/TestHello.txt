@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestHello
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in TestHello
+testFails(TestHello)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[hey]> but was:<[there]>
+	at TestHello.testFails(TestHello.java:10)
+
