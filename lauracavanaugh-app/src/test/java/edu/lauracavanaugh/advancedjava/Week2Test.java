@@ -15,11 +15,10 @@ public class Week2Test extends TestCase {
 
     private ServiceProvider mockStockService;
     private String mockSymbol = "ORCL";
-    private double mockPrice = 56.89;
 
     public void setup() {
         this.mockStockService = Mockito.mock(ServiceProvider.class);
-        when(mockStockService.getQuote(any(String.class))).thenReturn(new StockQuote(mockSymbol,mockPrice));
+        when(mockStockService.getQuote(any(String.class))).thenReturn(new StockQuote(mockSymbol));
     }
 
     @Test
@@ -29,7 +28,7 @@ public class Week2Test extends TestCase {
         double price = 137.34983;
 
         ServiceProvider mockStockService = Mockito.mock(ServiceProvider.class);
-        when(mockStockService.getQuote(any(String.class))).thenReturn(new StockQuote(symbol,price));
+        when(mockStockService.getQuote(any(String.class))).thenReturn(new StockQuote(symbol));
 
         assertEquals( mockStockService.getQuote(symbol).getPrice(),price);
     }
@@ -43,7 +42,7 @@ public class Week2Test extends TestCase {
     @Test
     public void testEquals() {
         setup();
-        StockQuote testQuote = new StockQuote(this.mockSymbol, this.mockPrice);
+        StockQuote testQuote = new StockQuote(this.mockSymbol);
         assertTrue(this.mockStockService.getQuote(mockSymbol).equals(testQuote));
         assertTrue(testQuote.equals(this.mockStockService.getQuote(mockSymbol)));
 

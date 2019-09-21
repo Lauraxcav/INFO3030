@@ -4,18 +4,13 @@ public class StockQuote {
     private String symbol;
     private double price;
 
-    public StockQuote(String symbol, double price) {
+    public StockQuote(String symbol) {
         this.symbol = symbol;
         this.price = price;
     }
 
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public double getPrice() {
-        return price;
-    }
+    public String getSymbol() { return this.symbol; }
+    public double getPrice() { return price; }
 
     @Override
     public String toString() {
@@ -24,10 +19,8 @@ public class StockQuote {
 
     @Override
     public boolean equals(Object o) {
-
         return o instanceof StockQuote &&
-                ((StockQuote) o).getSymbol().equals(this.symbol) &&
-                ((StockQuote) o).getPrice() == this.price;
+                ((StockQuote) o).getSymbol().equals(this.symbol) && ((StockQuote) o).getPrice() == this.price;
     }
 
     @Override
