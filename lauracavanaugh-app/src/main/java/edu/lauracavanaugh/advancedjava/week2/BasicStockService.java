@@ -27,7 +27,7 @@ public class BasicStockService implements StockService {
 
         List<StockQuote> stockQuotes = new ArrayList<StockQuote>();
         Calendar calendar = Calendar.getInstance();
-        System.out.println(calendar.getTime());
+
         while (calendar.after(from) && calendar.before(until)) {
             stockQuotes.add(this.getQuote(symbol, calendar));
             calendar.add(Calendar.DAY_OF_YEAR, 1);
