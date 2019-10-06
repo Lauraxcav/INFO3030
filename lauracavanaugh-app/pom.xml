@@ -21,6 +21,19 @@
           <artifactId>mockito-all</artifactId>
           <version>1.9.5</version>
       </dependency>
+      <!-- apache http components
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpcore</artifactId>
+          <version>4.3</version>
+      </dependency> -->
+
+      <!-- Oracle extensions such as @NotNull -->
+      <dependency>
+          <groupId>javax.validation</groupId>
+          <artifactId>validation-api</artifactId>
+          <version>1.0.0.GA</version>
+      </dependency>
 
   </dependencies>
   <build>

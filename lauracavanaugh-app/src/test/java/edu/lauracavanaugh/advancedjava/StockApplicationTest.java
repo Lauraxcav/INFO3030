@@ -1,29 +1,28 @@
 package edu.lauracavanaugh.advancedjava;
 
 import edu.lauracavanaugh.advancedjava.week2.StockApplication;
-import junit.framework.TestCase;
+import edu.lauracavanaugh.advancedjava.week2.StockService;
 import org.junit.Test;
-import org.mockito.internal.matchers.Null;
-
 import java.text.ParseException;
 
-public class StockApplicationTest extends TestCase {
+public class StockApplicationTest {
 
 
     @Test
     public void testMain() throws ParseException {
 
-        String[] args = new String[] {"IBM","09/27/2019","09/29/2019"} ;
+        String interval = StockService.IntervalEnum.DAY.toString();
+        String[] args = new String[] {"IBM","09/27/2019","09/29/2019",interval} ;
         StockApplication.main(args);
 
     }
 
     /**
      * This is dumb - this should work
-     * @throws ParseException
+     * @throws ParseException, NullPointerException
      */
    @Test(expected = NullPointerException.class)
-    public void testMainNegative() throws ParseException {
+    public void testMainNegative() throws ParseException, NullPointerException {
         StockApplication.main(null);
     }
 }
