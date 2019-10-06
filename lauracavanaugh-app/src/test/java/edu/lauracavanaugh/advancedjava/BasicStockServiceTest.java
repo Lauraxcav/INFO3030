@@ -2,6 +2,7 @@ package edu.lauracavanaugh.advancedjava;
 
 import edu.lauracavanaugh.advancedjava.week2.BasicStockService;
 import edu.lauracavanaugh.advancedjava.week2.StockQuote;
+import edu.lauracavanaugh.advancedjava.week2.StockService;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -58,7 +59,49 @@ public class BasicStockServiceTest extends TestCase {
         startDate.add(Calendar.DAY_OF_YEAR,-2);
         Calendar today = Calendar.getInstance();
         BasicStockService basicStockService = new BasicStockService();
-        List<StockQuote> myTestQuotes =  basicStockService.getQuote(mockSymbol, startDate, today);
+
+
+        List<StockQuote> myTestQuotes =  basicStockService.getQuote(mockSymbol, startDate, today, StockService.IntervalEnum.DAY);
+        // will return 3 quotes, one for each day, inclusive: [today-2, today-1, and today]
+        assertEquals(myTestQuotes.size(),3);
+
+        myTestQuotes = basicStockService.getQuote(mockSymbol, today, today, StockService.IntervalEnum.DAY);
+        // will return 1 quote for [today]
+        assertEquals(myTestQuotes.size(), 1);
+    }
+
+    @Test
+    public void testIntervalEnumHOUR() {
+        setup();
+        Calendar startDate = Calendar.getInstance();
+        startDate.add(Calendar.HOUR_OF_DAY,-2);
+        Calendar today = Calendar.getInstance();
+        BasicStockService basicStockService = new BasicStockService();
+        List<StockQuote> myTestQuotes =  basicStockService.getQuote(mockSymbol, startDate, today, StockService.IntervalEnum.HOUR);
+
+        // will return 3 quotes, one for each day, inclusive: [hour-2, hour-1, hour]
+        assertEquals(myTestQuotes.size(),3);
+
+        myTestQuotes = basicStockService.getQuote(mockSymbol, today, today, StockService.IntervalEnum.HOUR);
+        // will return 1 quote for [hour]
+        assertEquals(myTestQuotes.size(), 1);
+
+    }
+
+    @Test
+    public void testIntervalEnumMINUTE() {
+        setup();
+        Calendar startDate = Calendar.getInstance();
+        startDate.add(Calendar.MINUTE,-2);
+        Calendar today = Calendar.getInstance();
+        BasicStockService basicStockService = new BasicStockService();
+        List<StockQuote> myTestQuotes =  basicStockService.getQuote(mockSymbol, startDate, today, StockService.IntervalEnum.MINUTE);
+        // will return 3 quotes, one for each day, inclusive: [today-2, today-1, and today]
+        assertEquals(myTestQuotes.size(),3);
+
+        myTestQuotes = basicStockService.getQuote(mockSymbol, today, today, StockService.IntervalEnum.MINUTE);
+        // will return 1 quote for [minute]
+        assertEquals(myTestQuotes.size(), 1);
     }
 
 }
