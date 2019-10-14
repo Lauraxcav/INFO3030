@@ -21,12 +21,6 @@
           <artifactId>mockito-all</artifactId>
           <version>1.9.5</version>
       </dependency>
-      <!-- apache http components
-      <dependency>
-          <groupId>org.apache.httpcomponents</groupId>
-          <artifactId>httpcore</artifactId>
-          <version>4.3</version>
-      </dependency> -->
 
       <!-- Oracle extensions such as @NotNull -->
       <dependency>
@@ -34,6 +28,29 @@
           <artifactId>validation-api</artifactId>
           <version>1.0.0.GA</version>
       </dependency>
+
+      <!-- These are for com.origamisoftware.teach.advanced package -->
+      <!-- apache http components -->
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpcore</artifactId>
+          <version>4.3</version>
+      </dependency>
+
+      <!-- mysql -->
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>5.1.6</version>
+      </dependency>
+
+      <!-- ScriptRunner -->
+      <dependency>
+          <groupId>org.apache.ibatis</groupId>
+          <artifactId>ibatis-sqlmap</artifactId>
+          <version>2.3.4.726</version>
+      </dependency>
+
 
   </dependencies>
   <build>
@@ -45,6 +62,14 @@
           <useSystemClassLoader>false</useSystemClassLoader>
         </configuration>
       </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>7</source>
+                <target>7</target>
+            </configuration>
+        </plugin>
     </plugins>
 
   </build>

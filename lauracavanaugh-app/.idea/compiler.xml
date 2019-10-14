@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="lauracavanaugh-app" target="1.5" />
+      <module name="lauracavanaugh-app" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>
