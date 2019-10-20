@@ -12,7 +12,7 @@ public class ServiceFactory {
 
 
     // use this if there's only one type of service.  I think.
-    private static final BasicStockService SERVICE = new  BasicStockService();
+    private static final StockService SERVICE = new  BasicStockService();
 
     /*
     To keep programmer from constructing a new Service
@@ -22,7 +22,7 @@ public class ServiceFactory {
     /*
     This is the factory method, getService()
      */
-    public static BasicStockService getService() {
+    public static StockService getService() {
         // In here we can decide which service to return
         // but for now, we're returning a BasicStockService
         //return new BasicStockService();
