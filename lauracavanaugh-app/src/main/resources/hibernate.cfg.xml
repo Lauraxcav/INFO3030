@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- This file contains installation specific properties used by the -->
+        <!-- HibernateUtils class.  Applications should place this file in  -->
+        <!-- the root of their class path with appropriate production values. -->
+
+        <!-- Tug database connection URL and credentials -->
+        <!-- Note: there's no default schema, but user 'student' has access to a few schemas -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/</property>
+
+        <!-- which schema? -->
+        <property name="schema.stocks">stocks</property>
+        <property name="schema.activities">activities</property>
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- these were set up, already, for a different class -->
+        <property name="hibernate.connection.username">student</property>
+        <property name="hibernate.connection.password">mysql</property>
+
+        <!-- activities schema -->
+        <mapping class="com.origamisoftware.teach.advanced.model.Hobby"/>
+        <mapping class="com.origamisoftware.teach.advanced.model.Person"/>
+        <mapping class="com.origamisoftware.teach.advanced.model.PersonHobby"/>
+
+        <!-- stocks schema -->
+        <mapping class="com.origamisoftware.teach.advanced.model.Stocks_Person" />
+        <mapping class="com.origamisoftware.teach.advanced.model.Stocks_PersonSymbol" />
+
+
+    </session-factory>
+</hibernate-configuration>

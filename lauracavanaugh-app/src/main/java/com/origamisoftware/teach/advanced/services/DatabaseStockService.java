@@ -40,7 +40,7 @@ public class DatabaseStockService implements StockService {
         try {
             Connection connection = DatabaseUtils.getConnection();
             //Statement statement = connection.createStatement();
-            String queryString = "SELECT * FROM quotes WHERE symbol = ? ORDER BY time DESC LIMIT 1";  // + symbol + "'";
+            String queryString = "SELECT * FROM stocks.quotes WHERE symbol = ? ORDER BY time DESC LIMIT 1";  // + symbol + "'";
             PreparedStatement statement = connection.prepareStatement(queryString);// set the parameters into the statement
             statement.setString(1,symbol);
 
@@ -79,7 +79,7 @@ public class DatabaseStockService implements StockService {
         try {
             Connection connection = DatabaseUtils.getConnection();
             //Statement statement = connection.createStatement();
-            String queryString = "SELECT * FROM quotes WHERE symbol = ?  AND ((? <= time) AND (time <= ?)) ";  // + symbol + "'";
+            String queryString = "SELECT * FROM stocks.quotes WHERE symbol = ?  AND ((? <= time) AND (time <= ?)) ";  // + symbol + "'";
             PreparedStatement statement = connection.prepareStatement(queryString);// set the parameters into the statement
             statement.setString(1,symbol);
             java.sql.Date sqlFrom = new java.sql.Date(from.getTime().getTime());

@@ -2,6 +2,8 @@ package com.origamisoftware.teach.advanced.services;
 
 import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
+import com.origamisoftware.teach.advanced.service.PersonStockService;
+import com.origamisoftware.teach.advanced.service.PersonService;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -10,20 +12,29 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * A factory that returns a <CODE>StockService</CODE> instance.
+ * A factory that returns a <CODE>Service</CODE> instance.
+ * This used to be StockServiceFactory, but now it serves up either a PersonService (get a stocks.person or stocks.person_symbols)
+ * or a StockService, which uses java.sql to query the database.
+ * I think I prefer java.sql - I'm much more familiar with prepared statements and sql params
+ *
  */
-public class StockServiceFactory {
+public class ServiceFactory {
 
     /**
      * Prevent instantiations
      */
-    private StockServiceFactory() {}
+    private ServiceFactory() {}
+
+
+    public  static PersonService getPersonServiceInstance() {
+        return new PersonStockService();
+    }
 
     /**
      *
      * @return get a <CODE>StockService</CODE> instance
      */
-    public static StockService getInstance() {
+    public static StockService getStockServiceInstance() {
         return new StockService() {
             @Override
             public StockQuote getQuote(String symbol) throws StockServiceException {
