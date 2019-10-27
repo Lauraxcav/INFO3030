@@ -33,6 +33,9 @@
         <mapping class="com.origamisoftware.teach.advanced.model.Stocks_Person" />
         <mapping class="com.origamisoftware.teach.advanced.model.Stocks_PersonSymbol" />
 
+        <!-- week 7 stocks.quotes schema -->
+        <mapping class="edu.lauracavanaugh.advancedjava.week7.model.Stocks_Quotes" />
+
 
     </session-factory>
 </hibernate-configuration>
