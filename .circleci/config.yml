@@ -53,7 +53,7 @@ jobs:
       - run:
           name: Install mysql client
           command: |
-            sudo apt-get install test_db
+            sudo apt-get install mysql-client
       - run:
           name: Import dummy data; run an example query running db setup from a file
           command: |
