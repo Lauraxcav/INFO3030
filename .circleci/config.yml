@@ -51,13 +51,17 @@ jobs:
             echo Failed waiting for MySQL && exit 1
           
       - run:
-          name: Install mysql client; Import dummy data; run an example query
+          name: Install mysql client
           command: |
-            sudo apt-get install stocks
+            sudo apt-get install test_db
       - run:
-          name: running db setup from a file
+          name: Import dummy data; run an example query running db setup from a file
           command: |
             mysql -h 127.0.0.1 -u student -pmysql stocks < sql/stocks_db_initialization.sql
+            
+      - run:
+          name: run an example query
+          command: |
             mysql -h 127.0.0.1 -u student -pmysql --execute="SELECT * FROM stocks.person"
             
 
