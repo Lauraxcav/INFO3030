@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Import dummy data; run an example query running db setup from a file
           command: |
-            mysql -h 127.0.0.1 -u student -pmysql stocks < sql/stocks_db_initialization.sql
+            mysql -h 127.0.0.1 -u student -pmysql stocks < src/main/sql/stocks_db_initialization.sql
             
       - run:
           name: run an example query
