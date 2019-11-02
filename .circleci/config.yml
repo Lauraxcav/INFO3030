@@ -32,6 +32,7 @@ jobs:
     steps:
       - checkout:
           path: ~/INFO3030
+      - run: sudo apt-get update
       - run: sudo apt install mysql-client
       - run:
           name: install dockerize
