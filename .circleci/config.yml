@@ -49,11 +49,13 @@ jobs:
               sleep 1
             done
             echo Failed waiting for MySQL && exit 1
-          
+      
+        # this part - why doesn't it work. sudo apt-get or sudo apt
       - run:
           name: Install mysql-client
           command: |
-            sudo apt-get install mysql-client
+            sudo apt install mysql-client
+      
       - run:
           name: Import dummy data; run an example query running db setup from a file
           command: |
