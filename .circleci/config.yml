@@ -12,6 +12,8 @@ jobs:
         command: [--default-authentication-plugin=mysql_native_password]
         
     environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: stocks
       MYSQL_USER: student
@@ -23,11 +25,6 @@ jobs:
       # - image: circleci/postgres:9.4
 
     working_directory: ~/INFO3030/lauracavanaugh-app
-    
-    environment:
-      # Customize the JVM maximum heap limit
-      MAVEN_OPTS: -Xmx3200m
-
 
     steps:
       - checkout:
