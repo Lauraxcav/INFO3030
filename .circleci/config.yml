@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
-      - image: circleci/mysql:8.0.15
+      - image: circleci/mysql:latest
         command: [--default-authentication-plugin=mysql_native_password]
         
     environment:
