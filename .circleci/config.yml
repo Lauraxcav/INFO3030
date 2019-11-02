@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
-      - image: circleci/mysql:8.0.4
+      - image: circleci/mysql:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -20,10 +20,10 @@ jobs:
     environment:
       # Customize the JVM maximum heap limit
       MAVEN_OPTS: -Xmx3200m
-      MYSQL_ROOT_PASSWORD: rootpw
-      MYSQL_DATABASE: test_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: passw0rd
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: stocks
+      MYSQL_USER: student
+      MYSQL_PASSWORD: mysql
 
     steps:
       - checkout:
@@ -51,18 +51,18 @@ jobs:
             echo Failed waiting for MySQL && exit 1
           
       - run:
-          name: Install mysql client
+          name: Install mysql-client
           command: |
             sudo apt-get install mysql-client
       - run:
           name: Import dummy data; run an example query running db setup from a file
           command: |
-            mysql -h 127.0.0.1 -u student -pmysql test_db < sql/stocks_db_initialization.sql
+            mysql -h 127.0.0.1 -u student -pmysql stocks < sql/stocks_db_initialization.sql
             
       - run:
           name: run an example query
           command: |
-            mysql -h 127.0.0.1 -u student -pmysql --execute="SELECT * FROM test_db.person"
+            mysql -h 127.0.0.1 -u student -pmysql --execute="SELECT * FROM stocks.person"
             
 
       - save_cache:
