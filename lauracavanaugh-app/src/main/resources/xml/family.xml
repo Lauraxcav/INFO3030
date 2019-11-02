@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<family>
+    <father age="40">Fred</father>
+    <mother age="40">Sally</mother>
+    <kids>
+        <child age="11" grade="5">Peter</child>
+        <child age="15" grade="9">Bill</child>
+        <child age="09" grade="3">Sally</child>
+    </kids>
+</family>

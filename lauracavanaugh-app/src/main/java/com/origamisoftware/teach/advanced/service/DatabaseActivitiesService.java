@@ -18,10 +18,6 @@ import java.util.List;
  */
 public class DatabaseActivitiesService implements ActivitiesService {
 
-
-
-
-
     /**
      * Get a list of all people
      *

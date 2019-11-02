@@ -13,23 +13,54 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
-
+    
+      - image: circleci/mysql:latest
+        command: [--default-authentication-plugin=mysql_native_password]
+        environment:
+          - MYSQL_ROOT_PASSWORD: root
+          - MYSQL_DATABASE: stocks
+          - MYSQL_USER: student
+          - MYSQL_PASSWORD: mysql
+          
     working_directory: ~/INFO3030/lauracavanaugh-app
-
+      
+    
     environment:
       # Customize the JVM maximum heap limit
       MAVEN_OPTS: -Xmx3200m
 
     steps:
       - checkout:
-            path: ~/INFO3030
+          path: ~/INFO3030
+      - run: sudo apt-get update
+      - run: sudo apt install mysql-client
+      - run:
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+
+
+      - run:
+          name: Import dummy data; run an example query running db setup from a file
+          command: |
+            mysql -h 127.0.0.1 -u student -pmysql stocks < src/main/sql/stocks_db_initialization.sql
+            
+      - run:
+          name: run an example query
+          command: |
+            mysql -h 127.0.0.1 -u student -pmysql --execute="SELECT * FROM stocks.person"
+
 
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+          - v1-dependencies-{{ checksum "pom.xml" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
 
       - run: mvn dependency:go-offline
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="family">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="father"/>
+                <xs:element ref="mother"/>
+                <xs:element ref="kids"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="father">
+        <xs:complexType mixed="true">
+            <xs:attribute name="age" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="mother">
+        <xs:complexType mixed="true">
+            <xs:attribute name="age" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="kids">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="child"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="child">
+        <xs:complexType mixed="true">
+            <xs:attribute name="age" use="required"/>
+            <xs:attribute name="grade" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -4,6 +4,8 @@ import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.service.PersonStockService;
 import com.origamisoftware.teach.advanced.service.PersonService;
+import edu.lauracavanaugh.advancedjava.week7.services.StockORMService;
+import edu.lauracavanaugh.advancedjava.week7.services.StocksQuotesService;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -29,6 +31,13 @@ public class ServiceFactory {
     public  static PersonService getPersonServiceInstance() {
         return new PersonStockService();
     }
+
+    /**
+     * The factory for the StockORMService, which is the ORM model for the quote table in stocks database
+     * @return StockORMService
+     */
+    public static StockORMService getStockORMService() { return new StocksQuotesService(); }
+
 
     /**
      *
