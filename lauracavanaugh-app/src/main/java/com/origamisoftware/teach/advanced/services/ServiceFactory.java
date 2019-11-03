@@ -6,6 +6,8 @@ import com.origamisoftware.teach.advanced.service.PersonStockService;
 import com.origamisoftware.teach.advanced.service.PersonService;
 import edu.lauracavanaugh.advancedjava.week7.services.StockORMService;
 import edu.lauracavanaugh.advancedjava.week7.services.StocksQuotesService;
+import edu.lauracavanaugh.advancedjava.week8.AdapterClass;
+import edu.lauracavanaugh.advancedjava.week8.AlphaVantageService;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -44,6 +46,7 @@ public class ServiceFactory {
      * @return get a <CODE>StockService</CODE> instance
      */
     public static StockService getStockServiceInstance() {
+
         return new StockService() {
             @Override
             public StockQuote getQuote(String symbol) throws StockServiceException {
@@ -61,6 +64,7 @@ public class ServiceFactory {
                 }
                 return stockQuotes;            }
         };
+
     }
 
 }

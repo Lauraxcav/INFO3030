@@ -1,7 +1,9 @@
 package edu.lauracavanaugh.advancedjava.week2;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*
 This is the StockService interface that we had to write
@@ -13,7 +15,33 @@ public interface StockService {
      * Poll each minute, each hour, or each day
      */
     public enum IntervalEnum {
-        MINUTE,HOUR,DAY;
+        MINUTE(Calendar.MINUTE),
+        HOUR(Calendar.HOUR_OF_DAY),
+        DAY(Calendar.DAY_OF_YEAR),
+        WEEK(Calendar.WEEK_OF_YEAR),
+        YEAR(Calendar.YEAR);
+
+        private final int value;
+        private static Map<Integer, IntervalEnum> map = new HashMap<Integer, IntervalEnum>();
+
+        static {
+            for (IntervalEnum intervalEnum : IntervalEnum.values()) {
+                map.put(intervalEnum.value, intervalEnum);
+            }
+        }
+        private IntervalEnum(int calendarEnum) {
+            this.value = calendarEnum;
+        }
+
+        // convert int to IntervalEnum
+        public static IntervalEnum valueOf(int intervalEnum) {
+            return map.get(intervalEnum);
+        }
+
+        // convert IntervalEnum to int
+        public int getValue() {
+            return value;
+        }
     }
     /**
      * Return the current price for a share of stock for the given symbol
@@ -34,4 +62,5 @@ public interface StockService {
      */
     List<StockQuote> getQuote(String symbol, Calendar from,
                               Calendar until, IntervalEnum interval);
+
 }
