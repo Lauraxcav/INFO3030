@@ -1,0 +1,31 @@
+<web-app version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>RequestInfoExample</servlet-name>
+        <servlet-class>com.origami.teach.servlet.RequestInfo</servlet-class>
+    </servlet>
+
+
+    <servlet>
+        <servlet-name>ServletForwardingExample</servlet-name>
+        <servlet-class>com.origami.teach.servlet.MoodSurvey</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletForwardingExample</servlet-name>
+        <url-pattern>/servlets/ServletForwardingExample/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestInfoExample</servlet-name>
+        <url-pattern>/servlets/RequestInfoExample/*</url-pattern>
+    </servlet-mapping>
+
+
+
+
+</web-app>
