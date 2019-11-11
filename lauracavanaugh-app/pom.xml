@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.lauracavanaugh.advancedjava</groupId>
   <artifactId>lauracavanaugh-app</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>lauracavanaugh-app</name>
   <url>http://maven.apache.org</url>
@@ -76,6 +76,25 @@
           <version>1.1.1</version>
       </dependency>
 
+      <!-- web app stuff -->
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version>3.0.1</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>javax.servlet.jsp.jstl</groupId>
+          <artifactId>jstl-api</artifactId>
+          <version>1.2</version>
+      </dependency>
 
   </dependencies>
   <build>
@@ -97,7 +116,10 @@
         </plugin>
     </plugins>
 
+    <!-- web application name - unknown if this will work -->
+    <finalName>LauraCavanaughWebApp</finalName>
 
 
   </build>
+
 </project>

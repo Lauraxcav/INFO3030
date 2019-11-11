@@ -4,16 +4,32 @@
 <head>
     <title>Stock Quotes</title>
 </head>
-<body>
+    <body>
 
-
-<form name="myform" action="servlets/ServletForwardingExample/" method="post">
-    Are you happy?  <input type="checkbox" name="happy" title="happy">
-                       <br>
-    Are you sad?  <input type="checkbox" name="sad" title="sad" >
-    <br>
-    <input type="SUBMIT" value="OK">
-    <input type="HIDDEN" name="submit" value="true">
-</form>
-</body>
+        <form name="frmGetStockQuery" action="servlets/StockSearchServlet/" method="post">
+            <title>Stock Quote Query</title>
+            <p>
+                Symbol:
+                <select name="symbol">
+                    <option>DIS</option>
+                    <option>GOOG</option>
+                </select>
+            </p>
+            <p>
+                From Date: <input name="from" value="" />
+            </p>
+            <p>
+                To Date: <input name="until" value="" />
+            </p>
+            <p>
+                Interval:
+                <select name="interval">
+                    <option>5min</option>
+                    <option>60min</option>
+                </select>
+            </p>
+            <input type="SUBMIT" value="OK">
+            <input type="HIDDEN" name="submit" value="true">
+        </form>
+    </body>
 </html>
