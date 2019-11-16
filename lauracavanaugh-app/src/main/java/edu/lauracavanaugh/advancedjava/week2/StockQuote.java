@@ -16,7 +16,12 @@ public class StockQuote {
     to provide the Service which can get the quote from the outside world somehow.
      */
     public StockQuote(String symbol) {
+        this(symbol,0,Calendar.getInstance());
+    }
+    public StockQuote(String symbol, double price, Calendar date) {
         this.symbol = symbol;
+        this.price = price;
+        this.date = date;
     }
 
     public String getSymbol() { return this.symbol; }

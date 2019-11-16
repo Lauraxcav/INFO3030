@@ -23,8 +23,8 @@ public class StockQuery extends StockData{
 
     // add a query interval here; used to be in StockService, but kind of makes sense in here too
     public enum IntervalEnum {
-        //MINUTE(Calendar.MINUTE),
-        //HOUR(Calendar.HOUR_OF_DAY),
+        MINUTE(Calendar.MINUTE),
+        HOUR(Calendar.HOUR_OF_DAY),
         DAY(Calendar.DAY_OF_YEAR),
         WEEK(Calendar.WEEK_OF_YEAR),
         YEAR(Calendar.YEAR);

@@ -1,5 +1,7 @@
 package edu.lauracavanaugh.advancedjava.week2;
 
+import edu.lauracavanaugh.advancedjava.week8.AdapterClass;
+import edu.lauracavanaugh.advancedjava.week8.AlphaVantageService;
 import jdk.nashorn.internal.ir.annotations.Immutable;
 
 /**
@@ -10,9 +12,6 @@ import jdk.nashorn.internal.ir.annotations.Immutable;
 @Immutable
 public class ServiceFactory {
 
-
-    // use this if there's only one type of service.  I think.
-    private static final StockService SERVICE = new  BasicStockService();
 
     /*
     To keep programmer from constructing a new Service
@@ -26,7 +25,11 @@ public class ServiceFactory {
         // In here we can decide which service to return
         // but for now, we're returning a BasicStockService
         //return new BasicStockService();
-        return SERVICE;
+        return new BasicStockService();
+    }
+
+    public static StockService getStockServiceInstance() {
+        return new AdapterClass(new AlphaVantageService());
     }
 
 
